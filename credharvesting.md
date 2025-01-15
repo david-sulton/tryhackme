@@ -1,4 +1,5 @@
 # Credharvesting
+![|777](https://tryhackme-images.s3.amazonaws.com/room-icons/1ab32f03262d2277c032ea836ef83bed.png)
 - After gaining access to a system we need to find creds.
 
 ## Task 1 Intro
@@ -186,11 +187,6 @@ Loading the mimidrv Driver into Memory
 
 
 ## Task 6 Windows Credential Manager
-
-This task introduces the Windows Credential Manager and discusses the technique used for dumping system credentials by exploiting it.
-
-What is Credentials Manager?
-
 Credential Manager is a Windows feature that stores logon-sensitive information for websites, applications, and networks. It contains login credentials such as usernames, passwords, and internet addresses. There are four credential categories:
 
     Web credentials contain authentication details stored in Internet browsers or other applications.
@@ -198,15 +194,13 @@ Credential Manager is a Windows feature that stores logon-sensitive information 
     Generic credentials contain basic authentication details, such as clear-text usernames and passwords.
     Certificate-based credentials: Athunticated details based on certifications.
 
-Note that authentication details are stored on the user's folder and are not shared among Windows user accounts. However, they are cached in memory.
+- Note that authentication details are stored on the user's folder and are not shared among Windows user accounts. However, they are cached in memory.
 
 Accessing Credential Manager
 
-We can access the Windows Credential Manager through GUI (Control Panel -> User Accounts -> Credential Manager) or the command prompt. In this task, the focus will be more on the command prompt scenario where the GUI is not available.
+- We can access the Windows Credential Manager through GUI (Control Panel -> User Accounts -> Credential Manager) or the command prompt. In this task, the focus will be more on the command prompt scenario where the GUI is not available.
 
-![](https://tryhackme-images.s3.amazonaws.com/user-uploads/5d617515c8cd8348d0b4e68f/room-content/2ee895dc640303b236e795c1f7e5df7a.png)
-
-We will be using the Microsoft Credentials Manager vaultcmd utility. Let's start to enumerate if there are any stored credentials. First, we list the current windows vaults available in the Windows target. 
+- We will be using the Microsoft Credentials Manager vaultcmd utility. Let's start to enumerate if there are any stored credentials. First, we list the current windows vaults available in the Windows target. 
 
 ```
 
