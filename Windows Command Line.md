@@ -34,4 +34,14 @@
 - ```del``` delete a file
 - ```erase```delete a file
 - ```*``` Can refer to multiple files
-- 
+## Task and Process Management
+- ```tasklist``` list running processes
+      - Some filtering is helpful because the output is expected to be very long. You can check all available filters by displaying the help page using tasklist /?. Let’s say that we want to search for tasks related to sshd.exe, we can do that with the command ```tasklist /FI "imagename eq sshd.exe"```. Note that /FI is used to set the filter image name equals sshd.exe
+-  ```taskkill /PID target_pid``` kill a process
+## Conclusion
+- ```chkdsk```checks the file system and disk volumes for errors and bad sectors.
+- ```driverquery```displays a list of installed device drivers.
+- ```sfc /scannow```scans system files for corruption and repairs them if possible.
+- ```/?``` can be used with most commands to display a help page.
+- Display text files: ```more file.txt```
+
