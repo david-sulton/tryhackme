@@ -11,4 +11,4 @@
 - By appending ```-examples``` to the command displayed above, we will be shown a list of common ways in which the chosen cmdlet can be used.
 - To search for modules (collections of cmdlets) in online repositories like the PowerShell Gallery, we can use ```Find-Module```
 - Once identified, the modules can be downloaded and installed from the repository with ```Install-Module```, making new cmdlets contained in the module available for use.
-## 
+## Navigating the File System and Working with Files
