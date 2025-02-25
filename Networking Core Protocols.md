@@ -25,7 +25,59 @@
       DELETE, as the name suggests, is used to delete a specified file or resource on the server.
 
 - HTTP and HTTPS commonly use TCP ports 80 and 443, respectively, and less commonly other ports such as 8080 and 8443.
+```
+root@ip-10-10-222-208:~# telnet 10.10.131.93 80
+Trying 10.10.131.93...
+Connected to 10.10.131.93.
+Escape character is '^]'.
+GET /flag.html HTTP/1.1
+Host: anything
+
+HTTP/1.1 200 OK
+Server: nginx/1.18.0 (Ubuntu)
+Date: Tue, 25 Feb 2025 16:39:43 GMT
+Content-Type: text/html
+Content-Length: 478
+Last-Modified: Thu, 27 Jun 2024 07:28:15 GMT
+Connection: keep-alive
+ETag: "667d148f-1de"
+Accept-Ranges: bytes
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hidden Message</title>
+    <style>
+        body {
+            background-color: white;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+        .hidden-text {
+            font-size: 1px;
+        }
+    </style>
+</head>
+<body>
+    <div class="hidden-text">THM{TELNET-HTTP}</div>
+</body>
+</html>
+```
+        
 ## FTP
+- Unlike HTTP, which is designed to retrieve web pages, File Transfer Protocol (FTP) is designed to transfer files. As a result, FTP is very efficient for file transfer, and when all conditions are equal, it can achieve higher speeds than HTTP.
+
+Example commands defined by the FTP protocol are:
+
+    USER is used to input the username
+    PASS is used to enter the password
+    RETR (retrieve) is used to download a file from the FTP server to the client.
+    STOR (store) is used to upload a file from the client to the FTP server.
+
+WORKING
+
 ## SMTP
 ## POP3
 ## IMAP
