@@ -76,8 +76,15 @@ Example commands defined by the FTP protocol are:
     RETR (retrieve) is used to download a file from the FTP server to the client.
     STOR (store) is used to upload a file from the client to the FTP server.
 
-# WORKING
+```
+ftp 10.10.10.10
+anonymous
+<enter>
+ ls
+get flag.txt
+```
 
 ## SMTP
+
 ## POP3
 ## IMAP
