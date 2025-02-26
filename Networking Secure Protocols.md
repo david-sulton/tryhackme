@@ -10,9 +10,15 @@
 - Generally speaking, getting a certificate signed requires paying an annual fee. However, 
 <a href="https://letsencrypt.org/">Let's Encrypt</a> allows you to get your certificate signed for free.
 ## HTTPS
-- 
+- HTTPS stands for Hypertext Transfer Protocol Secure. It is basically HTTP over TLS. Consequently, requesting a page over HTTPS will require the following three steps (after resolving the domain name):
+
+      Establish a TCP three-way handshake with the target server
+      Establish a TLS session
+      Communicate using the HTTP protocol; for example, issue HTTP requests, such as
+      GET / HTTP/1.1
+
 ## SMTPS, POP3S, IMAPS
--
+- 
 ## SSH
 ## SFTP and FTPS
 ## VPN
