@@ -36,6 +36,7 @@
 - SFTP stands for SSH File Transfer Protocol and allows secure file transfer. It is part of the SSH protocol suite and shares the same port number, 22. If enabled in the OpenSSH server configuration, you can connect using a command such as ```sftp username@hostname```. Once logged in, you can issue commands such as ```get filename``` and ```put filename``` to download and upload files, respectively. Generally speaking, SFTP commands are Unix-like and can differ from FTP commands.
 ## VPN
 - virtual private network (VPN)
+  
 ![image](https://github.com/user-attachments/assets/b19b2f24-d730-4131-9a3a-6019fad7306b)
 
 Once a VPN tunnel is established, all our Internet traffic will usually be routed over the VPN connection, i.e. via the VPN tunnel. Consequently, when we try to access an Internet service or web application, they will not see our public IP address but the VPN server’s. This is why some Internet users connect over VPN to circumvent geographical restrictions. Furthermore, the local ISP will only see encrypted traffic, which limits its ability to censor Internet access.
