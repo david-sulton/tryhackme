@@ -18,8 +18,30 @@
       GET / HTTP/1.1
 
 ## SMTPS, POP3S, IMAPS
-- 
+![image](https://github.com/user-attachments/assets/7f57d557-edaf-4225-b55e-429cf38e99e3)
+
 ## SSH
+- OpenSSH offers several benefits. We will list a few key points:
+- Secure authentication: Besides password-based authentication, SSH supports public key and two-factor authentication.
+```Confidentiality: OpenSSH provides end-to-end encryption, protecting against eavesdropping. Furthermore, it notifies you of new server keys to protect against man-in-the-middle attacks.
+    Integrity: In addition to protecting the confidentiality of the exchanged data, cryptography also protects the integrity of the traffic.
+    Tunneling: SSH can create a secure “tunnel” to route other protocols through SSH. This setup leads to a VPN-like connection.
+    X11 Forwarding: If you connect to a Unix-like system with a graphical user interface, SSH allows you to use the graphical application over the network.
+```
+- Port 22
+- ```ssh username@hostname```
+- ```ssh 192.168.124.148 -X``` #supports graphical user interfaces
+- 
 ## SFTP and FTPS
+- SFTP stands for SSH File Transfer Protocol and allows secure file transfer. It is part of the SSH protocol suite and shares the same port number, 22. If enabled in the OpenSSH server configuration, you can connect using a command such as ```sftp username@hostname```. Once logged in, you can issue commands such as ```get filename``` and ```put filename``` to download and upload files, respectively. Generally speaking, SFTP commands are Unix-like and can differ from FTP commands.
 ## VPN
+- virtual private network (VPN)
+![image](https://github.com/user-attachments/assets/b19b2f24-d730-4131-9a3a-6019fad7306b)
+
+Once a VPN tunnel is established, all our Internet traffic will usually be routed over the VPN connection, i.e. via the VPN tunnel. Consequently, when we try to access an Internet service or web application, they will not see our public IP address but the VPN server’s. This is why some Internet users connect over VPN to circumvent geographical restrictions. Furthermore, the local ISP will only see encrypted traffic, which limits its ability to censor Internet access.
+
+In other words, if a user connects to a VPN server in Japan, they will appear to the servers they access as if located in Japan. These servers will customise their experience accordingly, such as redirecting them to the Japanese version of the service. The screenshot below shows the Google Search page after connecting to a VPN server in Japan.
+![image](https://github.com/user-attachments/assets/3306469b-f085-4140-9504-e25892436040)
+
+
 ## Closing Notes
