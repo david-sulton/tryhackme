@@ -203,4 +203,72 @@ Hashcat uses the following basic syntax: hashcat -m <hash_type> -a <attack_mode>
 For example, hashcat -m 3200 -a 0 hash.txt /usr/share/wordlists/rockyou.txt will treat the hash as Bcrypt and try the passwords in the rockyou.txt file.
 
 # Hashing for Integrity checking  (Task7)
+In Task 3, we mentioned that we would focus on two uses of hashing: password storage and data integrity. We have extensively discussed how hashing secures passwords in authentication systems. In this task, we will discuss how we can use hash functions to check the integrity of files.
+Integrity Checking
+
+Hashing can be used to check that files haven’t been changed. If you put the same data in, you always get the same data out. Even if a single bit changes, the hash will change significantly, as demonstrated in Task 2. This means you can use it to check that files haven’t been modified or to ensure that the file you downloaded is identical to the file on the web server. The text file listed below shows the SHA256 hash of two Fedora Workstation ISO files. If running sha256sum on the file you downloaded returned the same hash listed in this signed file, you can be confident that your file is identical to the official one.
+AttackBox Terminal
+
+           
+root@AttackBox# head Fedora-Workstation-40-1.14-x86_64-CHECKSUM
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA256
+
+# Fedora-Workstation-Live-osb-40-1.14.x86_64.iso: 2623733760 bytes
+SHA256 (Fedora-Workstation-Live-osb-40-1.14.x86_64.iso) = 8d3cb4d99f27eb932064915bc9ad34a7529d5d073a390896152a8a899518573f
+# Fedora-Workstation-Live-x86_64-40-1.14.iso: 2295853056 bytes
+SHA256 (Fedora-Workstation-Live-x86_64-40-1.14.iso) = dd1faca950d1a8c3d169adf2df4c3644ebb62f8aac04c401f2393e521395d613
+[...]
+
+        
+
+You can also use hashing to find duplicate files; if two documents have the same hash, they are the same document. This is very convenient for finding and deleting duplicate files.
+HMACs
+
+HMAC (Keyed-Hash Message Authentication Code) is a type of message authentication code (MAC) that uses a cryptographic hash function in combination with a secret key to verify the authenticity and integrity of data.
+
+An HMAC can be used to ensure that the person who created the HMAC is who they say they are, i.e., authenticity is confirmed; moreover, it proves that the message hasn’t been modified or corrupted, i.e., integrity is maintained. This is achieved through the use of a secret key to prove authenticity and a hashing algorithm to produce a hash and prove integrity.
+
+The following steps give you a fair idea of how HMAC works.
+
+    The secret key is padded to the block size of the hash function.
+    The padded key is XORed with a constant (usually a block of zeros or ones).
+    The message is hashed using the hash function with the XORed key.
+    The result from Step 3 is then hashed again with the same hash function but using the padded key XORed with another constant.
+    The final output is the HMAC value, typically a fixed-size string.
+
+The illustration below should clarify the above steps.
+
+A visual representation of the HMAC function.
+
+Technically speaking, the HMAC function is calculated using the following expression:
+
+HMAC(K,M) = H((K⊕opad)||H((K⊕ipad)||M))
+
+Note that M and K represent the message and the key, respectively.
+
 # Conclusion (Task8)
+This room covered hashing functions and their uses from various perspectives. Before moving on, we should distinguish between hashing, encoding, and encryption.
+
+Hashing, as already stated, is a process that takes input data and produces a hash value, a fixed-size string of characters, also referred to as digest. This hash value uniquely represents the data, and any change in the data, no matter how small, should lead to a change in the hash value. Hashing should not be confused with encryption or encoding; hashing is one-way, and you can’t reverse the process to get the original data.
+
+Encoding converts data from one form to another to make it compatible with a specific system. ASCII, UTF-8, UTF-16, UTF-32, ISO-8859-1, and Windows-1252 are valid encoding methods for the English language. Note that UTF-8, UTF-16, and UTF-32 are Unicode encodings, and they can represent characters from other languages, such as Arabic and Japanese.
+
+Another type of encoding commonly used when sending or saving data is not for any specific language. Examples include Base32 and Base64 encoding. Consider the following example of using base64 to encode and decode.
+Terminal
+
+           
+strategos@g5000 ~> base64
+TryHackMe
+VHJ5SGFja01lCg==
+strategos@g5000 ~> base64 -d
+VHJ5SGFja01lCg==
+TryHackMe
+
+        
+
+Encoding should not be confused with encryption, as using a specific encoding does not protect the confidentiality of the message. Encoding is reversible; anyone can change the data encoding with the right tools.
+
+Only encryption, which we covered in the previous rooms, protects data confidentiality using a cryptographic cipher and a key. Encryption is reversible, provided we know the cipher and can access the key.
+
+To continue with this module, join John the Ripper; however, if you would like to gain more in-depth information about cryptography, consider this room that dives into more concepts and showcases more tools related to cryptography.
