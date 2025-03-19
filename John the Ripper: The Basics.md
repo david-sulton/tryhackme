@@ -311,13 +311,80 @@ As a note, I find it helpful to talk out the patterns if you’re writing a rule
 
 Jumbo John already has an extensive list of custom rules containing modifiers for use in almost all cases. If you get stuck, try looking at those rules [around line 678] if your syntax isn’t working correctly.
 
+## Task09 Cracking Password Protected Zip Files
+
+Zip2John
+
+Similarly to the unshadow tool we used previously, we will use the zip2john tool to convert the Zip file into a hash format that John can understand and hopefully crack. The primary usage is like this:
+
+zip2john [options] [zip file] > [output file]
+
+    [options]: Allows you to pass specific checksum options to zip2john; this shouldn’t often be necessary
+    [zip file]: The path to the Zip file you wish to get the hash of
+    >: This redirects the output from this command to another file
+    [output file]: This is the file that will store the output
+
+Example Usage
+
+zip2john zipfile.zip > zip_hash.txt
+Cracking
+
+We’re then able to take the file we output from zip2john in our example use case, zip_hash.txt, and, as we did with unshadow, feed it directly into John as we have made the input specifically for it.
+
+john --wordlist=/usr/share/wordlists/rockyou.txt zip_hash.txt
 
 
+## Task10 Cracking Password Protected RAR Archive
+
+Rar2John
+
+Almost identical to the zip2john tool, we will use the rar2john tool to convert the RAR file into a hash format that John can understand. The basic syntax is as follows:
+
+rar2john [rar file] > [output file]
+
+    rar2john: Invokes the rar2john tool
+    [rar file]: The path to the RAR file you wish to get the hash of
+    >: This redirects the output of this command to another file
+    [output file]: This is the file that will store the output from the command
+
+Example Usage
+
+/opt/john/rar2john rarfile.rar > rar_hash.txt
+Cracking
+
+Once again, we can take the file we output from rar2john in our example use case, rar_hash.txt, and feed it directly into John as we did with zip2john.
+
+john --wordlist=/usr/share/wordlists/rockyou.txt rar_hash.txt
 
 
+## Task11 Cracking SSH Keys with John
 
+Cracking SSH Key Passwords
 
+Okay, okay, I hear you. There are no more file archives! Fine! Let’s explore one more use of John that comes up semi-frequently in CTF challenges—using John to crack the SSH private key password of id_rsa files. Unless configured otherwise, you authenticate your SSH login using a password. However, you can configure key-based authentication, which lets you use your private key, id_rsa, as an authentication key to log in to a remote machine over SSH. However, doing so will often require a password to access the private key; here, we will be using John to crack this password to allow authentication over SSH using the key.
+SSH2John
 
+Who could have guessed it, another conversion tool? Well, that’s what working with John is all about. As the name suggests, ssh2john converts the id_rsa private key, which is used to log in to the SSH session, into a hash format that John can work with. Jokes aside, it’s another beautiful example of John’s versatility. The syntax is about what you’d expect. Note that if you don’t have ssh2john installed, you can use ssh2john.py, located in the /opt/john/ssh2john.py. If you’re doing this on the AttackBox, replace the ssh2john command with python3 /opt/john/ssh2john.py or on Kali, python /usr/share/john/ssh2john.py.
+
+ssh2john [id_rsa private key file] > [output file]
+
+    ssh2john: Invokes the ssh2john tool
+    [id_rsa private key file]: The path to the id_rsa file you wish to get the hash of
+    >: This is the output director. We’re using it to redirect the output from this command to another file.
+    [output file]: This is the file that will store the output from
+
+Example Usage
+
+/opt/john/ssh2john.py id_rsa > id_rsa_hash.txt
+Cracking
+
+For the final time, we’re feeding the file we output from ssh2john, which in our example use case is called id_rsa_hash.txt and, as we did with rar2john, we can use this seamlessly with John:
+
+john --wordlist=/usr/share/wordlists/rockyou.txt id_rsa_hash.txt
+
+## Task12 Further reading
+
+Thank you for completing this room on John the Ripper! I hope you’ve learnt a lot along the way. I’m sure you understand the basic principles and pattern of using John with even the most obscure supported hashes by now. I’d recommend checking out the Openwall Wiki here for more information about using John and advice, updates, or news about the tool.
 
 
 
