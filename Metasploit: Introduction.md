@@ -247,7 +247,7 @@ msfconsole
 
            
 root@ip-10-10-220-191:~# msfconsole 
-                                                  
+```                                                  
 
                  _---------.
              .' #######   ;."
@@ -265,7 +265,7 @@ root@ip-10-10-220-191:~# msfconsole
                  ;@'. __*__,."    \|--- \_____________/
                   '(.,...."/
 
-
+```
        =[ metasploit v6.0                         ]
 + -- --=[ 2048 exploits - 1105 auxiliary - 344 post       ]
 + -- --=[ 562 payloads - 45 encoders - 10 nops            ]
