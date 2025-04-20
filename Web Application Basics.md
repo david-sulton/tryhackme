@@ -6,4 +6,11 @@
 ## Uniform Resource Locator
 ## HTTP Messages
 ## HTTP Request: Request Line and Methods
+## HTTP Request: Headers and Body
+## HTTP Response: Status Line and Status codes
+## HTTP Response: Headers and Body
+## Security Headers
+## Practical Task: Making HTTP Requests
+## Conclusion
+
 
