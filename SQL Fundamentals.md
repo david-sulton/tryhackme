@@ -130,25 +130,25 @@ CREATE TABLE
 Following the logic of the database statements, creating tables also uses a CREATE statement. Once a database is active (you have run the USE statement on it), a table can be created within it using the following statement syntax:
 Terminal
 
-           
+```           
 mysql> CREATE TABLE example_table_name (
     example_column1 data_type,
     example_column2 data_type,
     example_column3 data_type
 );
 
-        
+   ```     
 
 As you can see, there is a little more involved here. In the Databases 101 task, we covered how and when a table is created; it must be decided what columns will make up a record in that table, as well as what data type is expected to be contained within that column. That is what is represented by this syntax here. In the example, there are 3 example columns, but SQL supports many (over 1000). Let's try populating our thm_bookmarket_db with a table using the following statement:
 Terminal
 
-           
+```           
 mysql> CREATE TABLE book_inventory (
     book_id INT AUTO_INCREMENT PRIMARY KEY,
     book_name VARCHAR(255) NOT NULL,
     publication_date DATE
 );
-
+```
         
 
 This statement will create a table book_inventory with three columns: book_id, book_name and publication_date. book_id is an INT (Integer) as it should only ever be a number, AUTO_INCREMENT is present, meaning the first book inserted would be assigned book_id 1, the second book inserted would be assigned a book_id of 2, and so on. Finally, book_id is set as the PRIMARY KEY as it will be the way we uniquely identify a book record in our table (and a primary must be present in a table). 
@@ -174,6 +174,7 @@ DROP Syntax
 
            
 mysql> DESCRIBE book_inventory;
+```
 +------------------+--------------+------+-----+---------+----------------+
 | Field            | Type         | Null | Key | Default | Extra          |
 +------------------+--------------+------+-----+---------+----------------+
@@ -182,7 +183,7 @@ mysql> DESCRIBE book_inventory;
 | publication_date | date         | YES  |     | NULL    |                |
 +------------------+--------------+------+-----+---------+----------------+
 3 rows in set (0.02 sec)
-
+```
 ALTER 
 Once you have created a table, there may come a time when your need for the dataset changes, and you need to alter the table. This can be done using the ALTER statement. Let’s now imagine that we have decided that we actually want to have a column in our book inventory that has the page count for each book. Add this to our table using the following statement:
 Terminal
