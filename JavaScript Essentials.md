@@ -180,4 +180,36 @@ function hi(){var _0x48257e=_0x33bf,_0xab1127={'xMVHQ':function(_0x4eefa0,_0x4e5
 
 https://obf-io.deobfuscate.io/ 
 
+## Best Practices
+This task outlines the best practices for evaluating a website or writing code for a website. If you are developing a web application, you will likely end up using JS on your website. The practices below will assist you in reducing the attack surface and minimizing the chances of attack. 
 
+Avoid Relying on Client-Side Validation Only
+
+One of JS's primary functions is performing client-side validation. Developers sometimes use it for validating forms and rely entirely on it, which is not a good practice. Since a user can disable/manipulate JS on the client side, performing validation on the server side is also essential.
+
+Refrain from Adding Untrusted Libraries
+
+As discussed in earlier tasks, JS allows you to include any other JS scripts using the src attribute inside a script tag. But have you considered whether the library we include is from a trusted source? Bad actors have uploaded a bundle of libraries on the internet with names that resemble legitimate ones. So, if you blindly include a malicious library, you will expose your web application to threats.
+
+Avoid Hardcoded Secrets
+
+Never hardcode sensitive data like API keys, access tokens, or credentials into your JS code, as the user can easily check the source code and get the password. 
+```
+// Bad Practice
+const privateAPIKey = 'pk_TryHackMe-1337'; 
+```
+Minify and Obfuscate Your JavaScript Code
+
+Minifying and obfuscating JS code reduces its size, improves load time, and makes it harder for attackers to understand the logic of the code. Therefore, always minify and obfuscate the code when using code in production. The attacker can eventually reverse engineer it, but getting the original code will take at least some effort. 
+
+## Conslusion
+
+Congratulations on completing the JavaScript Essentials room!
+
+We've covered important topics like the basics of JS, creating our first JS code and integrating JS in HTML. Moving forward, we discussed other interactive elements of JS, like prompts and how attackers can abuse them. Then, the room highlighted the usage of control flow statements and how they can be bypassed in JS.
+
+We then explored how to use minify and obfuscate a JS file and learned the other way around. Lastly, we touched upon some best practices that you can follow to keep your web app safe from cyber threats. 
+
+Keep learning and stay vigilant against security threats; your journey as a JS developer has just begun!
+
+Let us know your thoughts on this room on our Discord channel or X account. See you around.
