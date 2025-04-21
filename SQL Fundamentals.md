@@ -157,11 +157,11 @@ SHOW TABLES
 Just as we can list databases using a SHOW statement, we can also list the tables in our currently active database (the database on which we last used the USE statement). Run the following command, and you should see the table you have just created:
 Terminal
 
-           
+```           
 mysql> SHOW TABLES;
-
-DESCRIBE 
-If we want to know what columns are contained within a table (and their data type), we can describe them using the DESCRIBE command (which can also be abbreviated to DESC). Describe the table you have just created using the following command:
+```
+## DESCRIBE 
+ If we want to know what columns are contained within a table (and their data type), we can describe them using the DESCRIBE command (which can also be abbreviated to DESC). Describe the table you have just created using the following command:
 Terminal
 
            
@@ -184,15 +184,15 @@ mysql> DESCRIBE book_inventory;
 +------------------+--------------+------+-----+---------+----------------+
 3 rows in set (0.02 sec)
 ```
-ALTER 
+## ALTER 
 Once you have created a table, there may come a time when your need for the dataset changes, and you need to alter the table. This can be done using the ALTER statement. Let’s now imagine that we have decided that we actually want to have a column in our book inventory that has the page count for each book. Add this to our table using the following statement:
 Terminal
 
-           
+   ```        
 mysql> ALTER TABLE book_inventory
 ADD page_count INT;
 
-        
+```        
 
 The ALTER statement can be used to make changes to a table, such as renaming columns, changing the data type in a column or removing a column. 
 DROP 
@@ -203,7 +203,102 @@ Terminal
 mysql> DROP TABLE table_name;
 
 
+## CRUD
+CRUD stands for Create, Read, Update, and Delete, which are considered the basic operations in any system that manages data.
 
+Let's explore all these different operations when working with MySQL. In the next two tasks, we will be using the books table that is part of the database thm_books. We can access it with the statement use thm_books;.
+Create Operation (INSERT)
+
+The Create operation will create new records in a table. In MySQL, this can be achieved by using the statement INSERT INTO, as shown below.
+Terminal
+
+mysql> INSERT INTO books (id, name, published_date, description)
+    VALUES (1, "Android Security Internals", "2014-10-14", "An In-Depth Guide to Android's Security Architecture");
+
+Query OK, 1 row affected (0.01 sec)
+
+        
+
+
+As we can observe, the INSERT INTO statement specifies a table, in this case, books, where you can add a new record; the columns id, name, published_date, and description are the records in the table. In this example, a new record with an id of  1, a name of "Android Security Internals", a published_date of "2014-10-14", and a description stating "Android Security Internals provides a complete understanding of the security internals of Android devices" was added.
+
+Note: This operation already exists in the database so there is no need to run the query.
+Read Operation (SELECT)
+
+The Read operation, as the name suggests, is used to read or retrieve information from a table. We can fetch a column or all columns from a table with the SELECT statement, as shown in the next example.
+Terminal
+```
+mysql> SELECT * FROM books;
++----+----------------------------+----------------+------------------------------------------------------+
+| id | name                       | published_date | description                                          |
++----+----------------------------+----------------+------------------------------------------------------+
+|  1 | Android Security Internals | 2014-10-14     | An In-Depth Guide to Android's Security Architecture |
++----+----------------------------+----------------+------------------------------------------------------+
+
+1 row in set (0.00 sec)         
+```
+        
+
+
+The above output SELECT statement is followed by an * symbol indicating that all columns should be retrieved, followed by the FROM clause and the table name, in this case, books.
+
+If we want to select a specific column like the name and description, we should specify them instead of the * symbol, as shown below.
+Terminal
+```
+mysql> SELECT name, description FROM books;
++----------------------------+------------------------------------------------------+
+| name                       | description                                          |
++----------------------------+------------------------------------------------------+
+| Android Security Internals | An In-Depth Guide to Android's Security Architecture |
++----------------------------+------------------------------------------------------+
+
+1 row in set (0.00 sec)         
+```
+        
+
+
+## Update Operation (UPDATE)
+
+The Update operation modifies an existing record within a table, and the same statement, UPDATE, can be used for this.
+Terminal
+
+mysql> UPDATE books
+    SET description = "An In-Depth Guide to Android's Security Architecture."
+    WHERE id = 1;
+
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0     
+
+        
+
+
+The UPDATE statement specifies the table, in this case, books, and then we can use SET followed by the column name we will update. The WHERE clause specifies which row to update when the clause is met, in this case, the one with id 1.
+Delete Operation (DELETE)
+
+The delete operation removes records from a table. We can achieve this with the DELETE statement.
+
+Note: There is no need to run the query. Deleting this entry will affect the rest of the examples in the upcoming tasks.
+Terminal
+```
+mysql> DELETE FROM books WHERE id = 1;
+
+Query OK, 1 row affected (0.00 sec)    
+
+```        
+
+
+Above, we can observe the DELETE statement followed by the FROM clause, which allows us to specify the table where the record will be removed, in this case, books, followed by the WHERE clause that indicates that it should be the one where the id is 1.
+
+
+
+CRUD operations results are fundamental for data operations and when interacting with databases. The statements associated with them are listed below.
+
+    Create (INSERT statement) - Adds a new record to the table.
+    Read (SELECT statement) - Retrieves record from the table.
+    Update (UPDATE statement) - Modifies existing data in the table.
+    Delete (DELETE statement) - Removes record from the table.
+
+These operations enable us to effectively manage and manipulate data within a database.
 
 
 
