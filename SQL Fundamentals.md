@@ -687,7 +687,196 @@ mysql> SELECT *
 
 
 The query above returns books that were published on or after November 2, 2021.
+
+
+## Functions
+
+When working with Data, functions can help us streamline queries and operations and manipulate data. Let's explore some of these functions next.
+
+String Functions
+
+Strings functions perform operations on a string, returning a value associated with it.
+
+CONCAT() Function
+
+This function is used to add two or more strings together. It is useful to combine text from different columns.
+Terminal
+```
+mysql> SELECT CONCAT(name, " is a type of ", category, " book.") AS book_info FROM books;
++------------------------------------------------------------------+
+| book_info                                                         |
++------------------------------------------------------------------+
+| Android Security Internals is a type of Defensive Security book. |
+| Bug Bounty Bootcamp is a type of Offensive Security book.        |
+| Car Hacker's Handbook is a type of Offensive Security book.      |
+| Designing Secure Software is a type of Defensive Security book.  |
+| Ethical Hacking is a type of Offensive Security book.            |
++------------------------------------------------------------------+
+
+5 rows in set (0.00 sec)  
+```
         
 
 
+This query concatenates the name and category columns from the books table into a single one named book_info.
+
+GROUP_CONCAT() Function
+
+This function can help us to concatenate data from multiple rows into one field. Let's explore an example of its usage.
+Terminal
+```
+mysql> SELECT category, GROUP_CONCAT(name SEPARATOR ", ") AS books
+    FROM books
+    GROUP BY category;
++--------------------+-------------------------------------------------------------+
+| category           | books                                                       |
++--------------------+-------------------------------------------------------------+
+| Defensive Security | Android Security Internals, Designing Secure Software       |
+| Offensive Security | Bug Bounty Bootcamp, Car Hacker's Handbook, Ethical Hacking |
++--------------------+-------------------------------------------------------------+
+
+2 rows in set (0.01 sec)
+```
+        
+
+
+The query above groups the books by category and concatenates the titles of books within each category into a single string.
+
+SUBSTRING() Function
+
+This function will retrieve a substring from a string within a query, starting at a determined position. The length of this substring can also be specified.
+Terminal
+```
+mysql> SELECT SUBSTRING(published_date, 1, 4) AS published_year FROM books;
++----------------+
+| published_year |
++----------------+
+| 2014           |
+| 2021           |
+| 2016           |
+| 2021           |
+| 2021           |
++----------------+
+
+5 rows in set (0.00 sec)  
+```
+        
+
+
+In the query above, we can observe how it extracts the first four characters from the published_date column and stores them in the published_year column.
+
+LENGTH() Function
+
+This function returns the number of characters in a string. This includes spaces and punctuation. We can find an example below.
+Terminal
+```
+mysql> SELECT LENGTH(name) AS name_length FROM books;
++-------------+
+| name_length |
++-------------+
+|          26 |
+|          19 |
+|          21 |
+|          25 |
+|          15 |
++-------------+
+
+5 rows in set (0.00 sec)  
+```
+        
+
+
+As we can observe above, the query calculates the length of the string within the name column and stores it in a column named name_length.
+
+Aggregate Functions
+
+These functions aggregate the value of multiple rows within one specified criteria in the query; It can combine multiple values into one result.
+
+COUNT() Function
+
+This function returns the number of records within an expression, as the example below shows.
+Terminal
+```
+mysql> SELECT COUNT(*) AS total_books FROM books;
++-------------+
+| total_books |
++-------------+
+|           5 |
++-------------+
+
+1 row in set (0.01 sec)
+```
+        
+
+
+This query above counts the total number of rows in the books table. The result is 5, as there are five books in the books table, and it's stored in the total_books column.
+
+SUM() Function
+
+This function sums all values (not NULL) of a determined column.
+
+Note: There is no need to execute this query. This is just for example purposes.
+Terminal
+```
+mysql> SELECT SUM(price) AS total_price FROM books;
++-------------+
+| total_price |
++-------------+
+|      249.95 |
++-------------+
+
+1 row in set (0.00 sec)
+```
+        
+
+
+The query above calculates the total sum of the price column. The result provides the aggregate price of all books in the column total_price.
+
+MAX() Function
+
+This function calculates the maximum value within a provided column in an expression.
+Terminal
+```
+mysql> SELECT MAX(published_date) AS latest_book FROM books;
++-------------+
+| latest_book |
++-------------+
+| 2021-12-21  |
++-------------+
+
+1 row in set (0.00 sec)
+```
+        
+
+
+The query above retrieves the latest publication (maximum value) date from the books table. The result 2021-12-21 is stored in the column latest_book.
+
+MIN() Function
+
+This function calculates the minimum value within a provided column in an expression.
+Terminal
+```
+mysql> SELECT MIN(published_date) AS earliest_book FROM books;
++---------------+
+| earliest_book |
++---------------+
+| 2014-10-14    |
++---------------+
+
+1 row in set (0.00 sec)
+```
+        
+
+
+The query above retrieves the earliest publication (minimum value) date from the books table. The result 2014-10-14 is stored in the earliest_book column.
     
+## Conclusion
+
+    Databases are collections of organised data or information that are easily accessible and can be manipulated or analysed.
+    The two primary types of databases are relational databases (used to store structured data) and non-relational databases (used to store data in a non-tabular format).
+    Relational databases are made up of Tables, columns and rows. Primary keys can ensure a record is unique within a table, and foreign keys can allow for a relationship/connection to be made between two (or more) tables.
+    SQL is an easy-to-learn programming language that can be used to interact with relational databases.
+    Database and Table statements can be used to create/manipulate databases and tables.
+    CRUD Operations (INSERT, SELECT, UPDATE and DELETE) can be used to manage data in a database.
+    In SQL, we can use clauses to define how data should be retrieved, filtered, sorted, or grouped.
+    The efficient use of operators and functions can help us filter and manipulate data in SQL.
