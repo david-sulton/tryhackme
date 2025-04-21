@@ -54,3 +54,157 @@ An illustration comparing a Primary Key and a Foreign Key in database tables. On
 Primary Keys: A primary key is used to ensure that the data collected in a certain column is unique. That is, there needs to be a way to identify each record stored in a table, a value unique to that record and is not repeated by any other record in that table. Think about matriculation numbers in a university; these are numbers assigned to a student so they can be uniquely identified in records (as sometimes students can have the same name). A column has to be chosen in each table as a primary key; in our example, “id” would make the most sense as an id has been uniquely created for each book where, as books can have the same publication date or (in rarer cases) book title. Note that there can only be one primary key column in a table.
 
 Foreign Keys: A foreign key is a column (or columns) in a table that also exists in another table within the database, and therefore provides a link between the two tables. In our example, think about adding an “author_id” field to our “Books” table; this would then act as a foreign key because the author_id in our Books table corresponds to the “id” column in the author table. Foreign keys are what allow the relationships between different tables in relational databases. Note that there can be more than one foreign key column in a table.
+
+## What is SQL?
+Now, all of this theoretically sounds great, but in practice, how do databases work? How would you go and make your first table and populate it with data? What would you use? Databases are usually controlled using a Database Management System (DBMS). Serving as an interface between the end user and the database, a DBMS is a software program that allows users to retrieve, update and manage the data being stored. Some examples of DBMSs include MySQL, MongoDB, Oracle Database and Maria DB. 
+
+The interaction between the end user and the database can be done using SQL (Structured Query Language). SQL is a programming language that can be used to query, define and manipulate the data stored in a relational database. 
+
+## The Benefits of SQL and Relational Databases
+
+SQL is almost as ubiquitous as databases themselves, and for good reason. Here are some of the benefits that come with learning and using to use SQL:
+
+    It's fast: Relational databases (aka those that SQL is used for) can return massive batches of data almost instantaneously due to how little storage space is used and high processing speeds. 
+
+    Easy to Learn: Unlike many programming languages, SQL is written in plain English, making it much easier to pick up. The highly readable nature of the language means users can concentrate on learning the functions and syntax.
+
+    Reliable: As mentioned before, relational databases can guarantee a level of accuracy when it comes to data by defining a strict structure into which data sets must fall in order to be inserted.
+
+    Flexible: SQL provides all kinds of capabilities when it comes to querying a database; this allows users to perform vast data analysis tasks very efficiently.
+
+
+## Database Statements
+CREATE DATABASE
+
+If a new database is needed, the first step you would take is to create it. This can be done in SQL using the CREATE DATABASE statement. This would be done using the following syntax:
+Terminal
+
+           
+mysql> CREATE DATABASE database_name;
+
+        
+
+Run the following command to create a database named thm_bookmarket_db:
+
+ 
+Terminal
+
+           
+mysql> CREATE DATABASE thm_bookmarket_db;
+
+        
+
+ 
+SHOW DATABASES
+Now that we have created a database, we can view it using the SHOW DATABASES statement. The SHOW DATABASES statement will return a list of present databases. Run the statement as follows:
+Terminal
+
+           
+mysql> SHOW DATABASES;
+
+        
+
+In the returned list, you should see the database you have just created and some databases that are included by default (mysql, information_scheme, performance_scheme and sys), which are used for various purposes that enable mysql to function. Also present are various tables needed for this lesson.
+USE DATABASE
+Once a database is created, you may want to interact with it. Before we can interact with it, we need to tell mysql which database we would like to interact with (so it knows which database to run subsequent queries against). To set the database we have just created as the active database, we would run the USE statement as follows (make sure to run this on your machine):
+Terminal
+
+           
+mysql> USE thm_bookmarket_db;
+
+        
+
+DROP DATABASE
+Once a database is no longer needed (maybe it was created for test purposes, or is no longer required), it can be removed using the DROP statement. To remove a database, we would use the following statement syntax (although, in our case, we want to keep our database, so no need to run this one yourself!):
+Terminal
+
+           
+mysql> DROP database database_name;
+
+        
+
+ 
+Table Statements
+Now that you can create, list, use, and remove databases, it's time to examine how we would populate those databases with tables and interact with those tables. 
+CREATE TABLE
+Following the logic of the database statements, creating tables also uses a CREATE statement. Once a database is active (you have run the USE statement on it), a table can be created within it using the following statement syntax:
+Terminal
+
+           
+mysql> CREATE TABLE example_table_name (
+    example_column1 data_type,
+    example_column2 data_type,
+    example_column3 data_type
+);
+
+        
+
+As you can see, there is a little more involved here. In the Databases 101 task, we covered how and when a table is created; it must be decided what columns will make up a record in that table, as well as what data type is expected to be contained within that column. That is what is represented by this syntax here. In the example, there are 3 example columns, but SQL supports many (over 1000). Let's try populating our thm_bookmarket_db with a table using the following statement:
+Terminal
+
+           
+mysql> CREATE TABLE book_inventory (
+    book_id INT AUTO_INCREMENT PRIMARY KEY,
+    book_name VARCHAR(255) NOT NULL,
+    publication_date DATE
+);
+
+        
+
+This statement will create a table book_inventory with three columns: book_id, book_name and publication_date. book_id is an INT (Integer) as it should only ever be a number, AUTO_INCREMENT is present, meaning the first book inserted would be assigned book_id 1, the second book inserted would be assigned a book_id of 2, and so on. Finally, book_id is set as the PRIMARY KEY as it will be the way we uniquely identify a book record in our table (and a primary must be present in a table). 
+Book_name has the data type VARCHAR(255), meaning it can use variable characters (text/numbers/punctuation) and a limit of 255 characters is set and NOT NULL, meaning it cannot be empty (so if someone tried to insert a record into this table but the book_name was empty it would be rejected. Publication_date is set as the data type DATE.
+SHOW TABLES 
+Just as we can list databases using a SHOW statement, we can also list the tables in our currently active database (the database on which we last used the USE statement). Run the following command, and you should see the table you have just created:
+Terminal
+
+           
+mysql> SHOW TABLES;
+
+DESCRIBE 
+If we want to know what columns are contained within a table (and their data type), we can describe them using the DESCRIBE command (which can also be abbreviated to DESC). Describe the table you have just created using the following command:
+Terminal
+
+           
+mysql> DESCRIBE book_inventory;
+
+        
+
+This will give you a detailed view of the table like so:
+DROP Syntax
+
+           
+mysql> DESCRIBE book_inventory;
++------------------+--------------+------+-----+---------+----------------+
+| Field            | Type         | Null | Key | Default | Extra          |
++------------------+--------------+------+-----+---------+----------------+
+| book_id          | int          | NO   | PRI | NULL    | auto_increment |
+| book_name        | varchar(255) | NO   |     | NULL    |                |
+| publication_date | date         | YES  |     | NULL    |                |
++------------------+--------------+------+-----+---------+----------------+
+3 rows in set (0.02 sec)
+
+ALTER 
+Once you have created a table, there may come a time when your need for the dataset changes, and you need to alter the table. This can be done using the ALTER statement. Let’s now imagine that we have decided that we actually want to have a column in our book inventory that has the page count for each book. Add this to our table using the following statement:
+Terminal
+
+           
+mysql> ALTER TABLE book_inventory
+ADD page_count INT;
+
+        
+
+The ALTER statement can be used to make changes to a table, such as renaming columns, changing the data type in a column or removing a column. 
+DROP 
+Similar to removing a database, you can also remove tables using the DROP statement. We don’t need to do this, but the syntax you would use for this is:
+Terminal
+
+           
+mysql> DROP TABLE table_name;
+
+
+
+
+
+
+
+    
