@@ -1,4 +1,4 @@
-# # Shell Overview
+# Shell Overview
 ![image](https://github.com/user-attachments/assets/6afcc389-174d-46ae-a018-0f010c6ae958)
 
 ## What is a Shell?
