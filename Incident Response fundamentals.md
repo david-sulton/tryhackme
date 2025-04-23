@@ -25,6 +25,13 @@ An attacker shown as an insider in between all the employees.
 
 All these incidents have their unique potential to impact the victim negatively. These incidents can not be compared in terms of the severity of the impact they create. This is because a particular incident can be disastrous for one organization while it can cause minor damage to another. For example, XYZ Corp. may not be heavily impacted by a data leak as the information it stores can be useless to anybody else. However, it can undergo a massive loss in case of a Denial of Service (DoS) attack on its primary website, as its services depend on that website.
 
+![image](https://github.com/user-attachments/assets/74d25384-eeca-4028-baf3-e7e32137b02c)
+![image](https://github.com/user-attachments/assets/95e94eab-bc43-4b67-96bd-b170ef54f111)
+
+
+  - SIEM: The Security Information and Event Management Solution (SIEM) collects all important logs in one centralized location and correlates them to identify incidents.
+  - AV: Antivirus (AV) detects known malicious programs in a system and regularly scans your system for these.
+  - EDR: Endpoint Detection and Response (EDR) is deployed on every system, protecting it against some advanced-level threats. This solution can also contain and eradicate the threat.
 
 
 
