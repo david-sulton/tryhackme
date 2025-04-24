@@ -7,4 +7,10 @@
 - There are various places inside a system where the traces of an attack could be fetched. The logs contain most of these traces. Logs are the digital footprints left behind by any activity. The activity could be a normal one or the one with malicious intent. Tracing down the activity and the individual behind the execution of that activity becomes easier through logs.
 ![image](https://github.com/user-attachments/assets/a5af7fd9-d5fa-43f1-8187-d0a3381dbc40)
 
+![image](https://github.com/user-attachments/assets/c40143d8-cf51-4706-ab7c-9db21e08fce7)
+
+# Windows Event View
+![image](https://github.com/user-attachments/assets/7ed1fdd0-a4d7-40bd-9046-2abd57887fa1)
+![image](https://github.com/user-attachments/assets/f8d8ecda-dbe5-47eb-b85c-ba0f7113c817)
+
 
