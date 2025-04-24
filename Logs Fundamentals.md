@@ -13,4 +13,17 @@
 ![image](https://github.com/user-attachments/assets/7ed1fdd0-a4d7-40bd-9046-2abd57887fa1)
 ![image](https://github.com/user-attachments/assets/f8d8ecda-dbe5-47eb-b85c-ba0f7113c817)
 
+# Log analysis on linux
+```
+root@kali$ cat access.log
+172.16.0.1 - - [06/Jun/2024:13:58:44] "GET /products HTTP/1.1" 404 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36"
+10.0.0.1 - - [06/Jun/2024:13:57:44] "GET / HTTP/1.1" 404 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36"
+192.168.1.1 - - [06/Jun/2024:13:56:44] "GET /about HTTP/1.1" 500 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36"
+```
+- Can use grep to find specific info
+- ```grep "192.168.1.1 access.log```
+- ```less access.log```
+- 
+
+
 
