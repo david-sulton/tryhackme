@@ -39,5 +39,38 @@ Linux OS stores all the related logs, such as events, errors, warnings, etc. Whi
 - /var/log/cron   : Events related to cron jobs are stored in this location.
 - /var/log/auth.log and /var/log/secure : Stores authentication related logs.
 - /var/log/kern : This file stores kernel related events.
+```journalct -f``` shows all logs for linux system in real time (following)
+
+![image](https://github.com/user-attachments/assets/0e6d38aa-bae5-4dc0-944e-8db61a2d1731)
+
+
+# SIEM is just one part of the SOC
+![image](https://github.com/user-attachments/assets/02e57dcb-f169-4c63-b13d-88898d5d36a0)
+
+# Dashboard
+
+- Dashboards are the most important components of any SIEM. SIEM presents the data for analysis after being normalized and ingested. The summary of these analyses is presented in the form of actionable insights with the help of multiple dashboards. Each SIEM solution comes with some default dashboards and provides an option for custom Dashboard creation. Some of the information that can be found in a dashboard are:
+
+- Alert Highlights
+- System Notification
+- Health Alert
+- List of Failed Login Attempts
+- Events Ingested Count
+- Rules triggered
+- Top Domains Visited
+
+An example of a Default dashboard in Qradar SIEM is shown below:
+![image](https://github.com/user-attachments/assets/59afc93d-99f3-4354-b705-9279fe63baab)
+
+# Correlation Rules
+
+- Correlation rules play an important role in the timely detection of threats allowing analysts to take action on time. Correlation rules are pretty much logical expressions set to be triggered. A few examples of correlation rules are:
+```
+If a User gets 5 failed Login Attempts in 10 seconds - Raise an alert for Multiple Failed Login Attempts
+If login is successful after multiple failed login attempts - Raise an alert for Successful Login After multiple Login Attempts
+A rule is set to alert every time a user plugs in a USB (Useful if USB is restricted as per the company policy)
+If outbound traffic is > 25 MB - Raise an alert to potential Data exfiltration Attempt (Usually, it depends on the company policy)
+```
+
 
 
