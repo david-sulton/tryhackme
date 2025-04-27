@@ -11,8 +11,8 @@
 
 These are log sources that capture events that occurred within or related to the host. Some log sources that generate host-centric logs are Windows Event logs, Sysmon, Osquery, etc. Some examples of host-centric logs are:
 
-A user accessing a file
-A user attempting to authenticate.
+- A user accessing a file
+- A user attempting to authenticate.
 A process Execution Activity
 A process adding/editing/deleting a registry key or value.
 Powershell execution
