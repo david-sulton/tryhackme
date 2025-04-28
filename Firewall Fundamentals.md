@@ -25,3 +25,44 @@
 - Comes with an intrusion prevention system
 - Identify anomalies based on heuristic analysis
 - Decrypts and inspects SSL/TLS data packets
+
+
+## The basic components of a firewall rules:
+Source address: The machine’s IP address that would originate the traffic.
+
+Destination address: The machine’s IP address that would receive the data.
+
+Port: The port number for the traffic.
+
+Protocol: The protocol that would be used during the communication.
+
+Action: This defines the action that would be taken upon identifying any traffic of this particular nature.
+
+Direction: This field defines the rule’s applicability to incoming or outgoing traffic.
+
+## Actions:
+- Allow
+- deny
+- forward
+
+## Types:
+- Inbound rules
+- outbound rules
+- forward rules
+  
+## Windows Firewall
+![image](https://github.com/user-attachments/assets/652cac7e-8299-41d9-b8d6-22744249b8ed)
+- Private networks
+- Guest or public networks
+
+![image](https://github.com/user-attachments/assets/e4b3ae08-1196-47d0-9e15-999c82c2ad81)
+
+## Linux UFW:
+    sudo ufw enable
+    sudo ufw status
+    sudo ufw deny 3389
+    sudo ufw status numbered
+    sudo ufw delete
+    
+
+
