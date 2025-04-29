@@ -26,6 +26,7 @@ Hybrid IDS:
 ![image](https://github.com/user-attachments/assets/634deabc-4fb4-4f5b-af81-1b1e7830f7b3)
 
 
+![image](https://github.com/user-attachments/assets/d3488dad-20e4-46e7-8c71-42bb1489af8b)
 
 
 
