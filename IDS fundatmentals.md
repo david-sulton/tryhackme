@@ -28,7 +28,8 @@ Hybrid IDS:
 
 ![image](https://github.com/user-attachments/assets/d3488dad-20e4-46e7-8c71-42bb1489af8b)
 
-
+## Running Snort on a pcap
+    sudo snort -q -l /var/log/snort -r Task.pcap -A console -c /etc/snort/snort.conf
 
 
 
