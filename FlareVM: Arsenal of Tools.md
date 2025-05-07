@@ -54,3 +54,6 @@ Autoruns - Shows what executables are configured to run during system boot-up.
 Process Explorer - Provides information about running processes.
 Process Monitor -Monitors and logs real-time process/thread activity.
 ```
+![image](https://github.com/user-attachments/assets/5888074c-ef81-4ecf-b02e-052302b02dd4)
+
+
