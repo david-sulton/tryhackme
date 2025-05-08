@@ -56,4 +56,5 @@ Process Monitor -Monitors and logs real-time process/thread activity.
 ```
 ![image](https://github.com/user-attachments/assets/5888074c-ef81-4ecf-b02e-052302b02dd4)
 
+![image](https://github.com/user-attachments/assets/3c9aeb50-ba94-481e-b22d-d6afb49abf1f)
 
