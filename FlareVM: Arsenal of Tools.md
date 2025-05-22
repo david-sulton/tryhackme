@@ -58,4 +58,5 @@ Process Monitor -Monitors and logs real-time process/thread activity.
 
 ![image](https://github.com/user-attachments/assets/3c9aeb50-ba94-481e-b22d-d6afb49abf1f)
 
-asdasa
+![image](https://github.com/user-attachments/assets/8f8d7459-8663-40eb-8cc6-30741b891597)
+
