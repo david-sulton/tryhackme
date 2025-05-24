@@ -14,3 +14,9 @@
 - Confidentiality ensures that only the intended persons or recipients can access the data.
 - Integrity aims to ensure that the data cannot be altered; moreover, we can detect any alteration if it occurs.
 - Availability aims to ensure that the system or service is available when needed.
+
+DAD triad
+- Disclosure is the opposite of confidentiality. In other words, disclosure of confidential data would be an attack on confidentiality.
+- Alteration is the opposite of Integrity. For example, the integrity of a cheque is indispensable.
+- Destruction/Denial is the opposite of Availability.
+
