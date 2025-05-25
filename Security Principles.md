@@ -39,6 +39,7 @@ The Biba Model aims to achieve integrity by specifying two main rules:
 - Transformation Procedures (TPs) : These procedures are programmed operations, such as read and write, and should maintain the integrity of CDIs.
 - Integrity Verification Procedures (IVPs) : These procedures check and ensure the validity of CDIs.
 
+# Defence-in-Depth
 
 
 
