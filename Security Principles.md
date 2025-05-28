@@ -68,4 +68,8 @@ ISO/IEC 19249 teaches five design principles:
 
 - Zero Trust: This principle treats trust as a vulnerability, and consequently, it caters to insider-related threats. After considering trust as a vulnerability, zero trust tries to eliminate it. It is teaching indirectly, “never trust, always verify.” In other words, every entity is considered adversarial until proven otherwise. Zero trust does not grant trust to a device based on its location or ownership. This approach contrasts with older models that would trust internal networks or enterprise-owned devices. Authentication and authorization are required before accessing any resource. As a result, if any breach occurs, the damage would be more contained if a zero trust architecture had been implemented.
 
+# Threat versus Risk
 
+    Vulnerability: Vulnerable means susceptible to attack or damage. In information security, a vulnerability is a weakness.
+    Threat: A threat is a potential danger associated with this weakness or vulnerability.
+    Risk: The risk is concerned with the likelihood of a threat actor exploiting a vulnerability and the consequent impact on the business.
