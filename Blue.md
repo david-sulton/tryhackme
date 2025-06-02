@@ -43,3 +43,4 @@ migrate <PID> #recommend spoolsv.exe printer service because it is reliable and 
 ## Find Flags
 - Common places are C:\ | documents | desktop
 - search -f flag2.txt
+- 
