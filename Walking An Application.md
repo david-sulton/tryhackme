@@ -68,3 +68,5 @@ On the Acme IT Support website, click into the news section, where you'll see th
 
 
 The first two articles are readable, but the third has been blocked with a floating notice above the content stating you have to be a premium customer to view the article. These floating boxes blocking the page contents are often referred to as paywalls as they put up a metaphorical wall in front of the content you wish to see until you pay.
+
+![image](https://github.com/user-attachments/assets/b1609a6f-bce8-4e77-860c-2a55ac8ec52e)
