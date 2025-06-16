@@ -46,3 +46,25 @@ Viewing the page source can often give us clues into whether a framework is in u
 
 # Example:
 ![image](https://github.com/user-attachments/assets/a9a2687a-4552-430d-9430-6749413c9c8e)
+
+# Developer Tools
+
+Every modern browser includes developer tools; this is a tool kit used to aid web developers in debugging web applications and gives you a peek under the hood of a website to see what is going on. As a pentester, we can leverage these tools to provide us with a much better understanding of the web application. We're specifically focusing on three features of the developer tool kit, Inspector, Debugger and Network.
+
+
+# Opening Developer Tools
+
+The way to access developer tools is different for every browser. If you're not sure how to access it, click the "View Site" button on the top right of this task to get instructions to how to access the tools for your browser.
+
+
+# Inspector
+
+The page source doesn't always represent what's shown on a webpage; this is because CSS, JavaScript and user interaction can change the content and style of the page, which means we need a way to view what's been displayed in the browser window at this exact time. Element inspector assists us with this by providing us with a live representation of what is currently on the website.
+
+
+As well as viewing this live view, we can also edit and interact with the page elements, which is helpful for web developers to debug issues.
+
+On the Acme IT Support website, click into the news section, where you'll see three news articles.
+
+
+The first two articles are readable, but the third has been blocked with a floating notice above the content stating you have to be a premium customer to view the article. These floating boxes blocking the page contents are often referred to as paywalls as they put up a metaphorical wall in front of the content you wish to see until you pay.
