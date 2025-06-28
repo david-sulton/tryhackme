@@ -6,5 +6,4 @@ The robots.txt file is a document that tells search engines which pages they are
 
 # Manual discovery with Favicon
 - The favicon is a small icon displayed in the browser's address bar or tab used for branding a website.
-- 
 
